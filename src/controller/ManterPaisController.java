@@ -2,6 +2,7 @@
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -45,6 +46,10 @@ public class ManterPaisController extends HttpServlet {
     PaisService cs = new PaisService();
     cs.criar(pais);
     pais = cs.carregar(pais.getId());
+    
+    //array
+    
+    
     
     /*PrintWriter out = response.getWriter();
     out.println("<html><head><title>Pais Cadastrado</title></head><body>");
