@@ -47,20 +47,7 @@ public class ManterPaisController extends HttpServlet {
     cs.criar(pais);
     pais = cs.carregar(pais.getId());
     
-    //array
-    
-    
-    
-    /*PrintWriter out = response.getWriter();
-    out.println("<html><head><title>Pais Cadastrado</title></head><body>");
-    out.println(  "id: "+pais.getId()+"<br>");
-    out.println(  "nome: "+pais.getNome()+"<br>");
-    out.println(  "populacao: "+pais.getPopulacao()+"<br>");
-    out.println(  "e-mail: "+pais.getArea()+"<br>");
-      out.println("</body></html>");
-    */
-    
-    
+     
     //enviar para o jsp
     request.setAttribute("pais", pais);
     

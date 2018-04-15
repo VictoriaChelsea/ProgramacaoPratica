@@ -2,8 +2,14 @@
 /*
  * style.css
  */
+
+*{
+	margin:0px;
+	padding:0px;
+}
+
 body{
-  padding-top: 50px;
+  /* padding-top: 50px; */
  background-color:#ccccff;
  
 }
@@ -11,4 +17,8 @@ body{
 .btn-default:hover{
 	background-color:#191970;
 	color: #fff;
+}
+
+#menu{
+	background-color:#191970;
 }
