@@ -35,7 +35,7 @@
 	            </div>
 	            <div id="actions" class="row">
 	                <div class="col-md-12">
-	                    <button class="btn btn-default">Cadastrar</button>
+	                    <button class="btn btn-default" name="acao" value="Criar">Cadastrar</button>
 	                </div>
 	            </div>
           

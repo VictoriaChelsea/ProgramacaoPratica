@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import model.Pais;
 
@@ -69,14 +70,15 @@ public class PaisDAO {
       stm.setInt(1, pais.getId());
       try (ResultSet rs = stm.executeQuery();) {
         if (rs.next()) {
+        	System.out.println("testes DAO");
           pais.setNome(rs.getString("nome"));
           pais.setPopulacao(rs.getLong("populacao"));
           pais.setArea(rs.getFloat("area"));
         } else {
-          pais.setId(-1);
+          pais.setId(-1	);
           pais.setNome(null);
-          pais.setPopulacao((Long) null);
-          pais.setArea((Float) null);
+          pais.setPopulacao(0);
+          pais.setArea(0);
         }
       } catch (SQLException e) {
         e.printStackTrace();
@@ -87,6 +89,60 @@ public class PaisDAO {
     return pais;
   }
   
+  public ArrayList<Pais> listarPais(){
+	  Pais pais;
+	  ArrayList<Pais> lista = new ArrayList<>();
+	  String sqlSelect = "SELECT id, nome, populacao, area FROM pais";
+	  
+	  try(Connection conn = ConnectionFactory.obtemConexao();
+			  PreparedStatement stm = conn.prepareStatement(sqlSelect);){
+		  try(ResultSet rs = stm.executeQuery();){
+			  while(rs.next()) {
+				  pais = new Pais();
+				  pais.setId(rs.getInt("id"));
+				  pais.setNome(rs.getString("nome"));
+				  pais.setPopulacao(rs.getLong("populacao"));
+				  pais.setArea(rs.getFloat("area"));
+				  lista.add(pais);			  
+			  }
+		  }catch (SQLException e) {
+			e.printStackTrace();
+		}
+	  }catch (SQLException e1) {
+		System.out.print(e1.getStackTrace());
+	}
+	  return lista;
+	  
+  }
+  
+  public ArrayList<Pais> listarPais(String chave){
+	  Pais pais;
+	  ArrayList<Pais> lista = new ArrayList<>();
+	  String sqlSelect = "SELECT id, nome, populacao, area FROM pais where upper(nome) like?";
+	  
+	  try(Connection conn = ConnectionFactory.obtemConexao();
+			PreparedStatement stm = conn.prepareStatement(sqlSelect);) {
+		  System.out.println(chave);
+		  stm.setString(1, "%" + chave.toUpperCase() +"%");
+		  try (ResultSet rs = stm.executeQuery();){
+			  while (rs.next()) {
+				  pais = new Pais();
+				  pais.setId(rs.getInt("id"));
+				  pais.setNome(rs.getString("nome"));
+				  pais.setPopulacao(rs.getLong("populacao"));
+				  pais.setArea(rs.getFloat("area"));
+				  lista.add(pais);	
+			  }
+			
+		  } catch (SQLException e) {
+			e.printStackTrace();
+		  }
+		
+	} catch (SQLException e1) {
+		System.out.print(e1.getStackTrace());;
+	}
+	return lista;
+  }
   
 
 }
