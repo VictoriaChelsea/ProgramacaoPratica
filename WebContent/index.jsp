@@ -13,7 +13,7 @@
 	<body>
 	<c:import url="menu.jsp"/>
 		  <div id="main" class="container">
-           <form action="ManterPais.do" method="post">
+           <form action="controller.do" method="post">
          
         
 	           <h3>Cadastro de Paises</h3>
@@ -35,7 +35,7 @@
 	            </div>
 	            <div id="actions" class="row">
 	                <div class="col-md-12">
-	                    <button class="btn btn-default" name="acao" value="Criar">Cadastrar</button>
+	                    <button class="btn btn-default" name="command" value="CriarPais">Cadastrar</button>
 	                </div>
 	            </div>
           
