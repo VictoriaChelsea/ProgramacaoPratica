@@ -12,7 +12,7 @@ public class PaisDAO {
   public int criar(Pais pais) {
     String sqlInsert = "INSERT INTO pais(nome, populacao, area) VALUES (?, ?, ?)";
     // usando o try with resources do Java 7, que fecha o que abriu
-    try (Connection conn = ConnectionFactory.obtemConexao();
+    try (Connection conn = ConnectionFactory.obterConexao();
         PreparedStatement stm = conn.prepareStatement(sqlInsert);) {
       stm.setString(1, pais.getNome());
       stm.setLong(2, pais.getPopulacao());
@@ -36,7 +36,7 @@ public class PaisDAO {
   public void atualizar(Pais pais) {
     String sqlUpdate = "UPDATE pais SET nome=?, populacao=?, area=? WHERE id=?";
     // usando o try with resources do Java 7, que fecha o que abriu
-    try (Connection conn = ConnectionFactory.obtemConexao();
+    try (Connection conn = ConnectionFactory.obterConexao();
         PreparedStatement stm = conn.prepareStatement(sqlUpdate);) {
       stm.setString(1, pais.getNome());
       stm.setLong(2, pais.getPopulacao());
@@ -51,7 +51,7 @@ public class PaisDAO {
   public void excluir(int id) {
     String sqlDelete = "DELETE FROM pais WHERE id = ?";
     // usando o try with resources do Java 7, que fecha o que abriu
-    try (Connection conn = ConnectionFactory.obtemConexao();
+    try (Connection conn = ConnectionFactory.obterConexao();
         PreparedStatement stm = conn.prepareStatement(sqlDelete);) {
       stm.setInt(1, id);
       stm.execute();
@@ -65,7 +65,7 @@ public class PaisDAO {
     pais.setId(id);
     String sqlSelect = "SELECT nome, populacao, area FROM pais WHERE pais.id = ?";
     // usando o try with resources do Java 7, que fecha o que abriu
-    try (Connection conn = ConnectionFactory.obtemConexao();
+    try (Connection conn = ConnectionFactory.obterConexao();
         PreparedStatement stm = conn.prepareStatement(sqlSelect);) {
       stm.setInt(1, pais.getId());
       try (ResultSet rs = stm.executeQuery();) {
@@ -94,7 +94,7 @@ public class PaisDAO {
 	  ArrayList<Pais> lista = new ArrayList<>();
 	  String sqlSelect = "SELECT id, nome, populacao, area FROM pais";
 	  
-	  try(Connection conn = ConnectionFactory.obtemConexao();
+	  try(Connection conn = ConnectionFactory.obterConexao();
 			  PreparedStatement stm = conn.prepareStatement(sqlSelect);){
 		  try(ResultSet rs = stm.executeQuery();){
 			  while(rs.next()) {
@@ -120,7 +120,7 @@ public class PaisDAO {
 	  ArrayList<Pais> lista = new ArrayList<>();
 	  String sqlSelect = "SELECT id, nome, populacao, area FROM pais where upper(nome) like?";
 	  
-	  try(Connection conn = ConnectionFactory.obtemConexao();
+	  try(Connection conn = ConnectionFactory.obterConexao();
 			PreparedStatement stm = conn.prepareStatement(sqlSelect);) {
 		  System.out.println(chave);
 		  stm.setString(1, "%" + chave.toUpperCase() +"%");
