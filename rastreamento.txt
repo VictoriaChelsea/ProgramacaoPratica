@@ -1,0 +1,20 @@
+[Domingo, Junho 03, 2018 BRT 04:01:10:699 pm] /Aula04PraticasProgramacao/Login.jsp
+
+[Domingo, Junho 03, 2018 BRT 04:01:13:560 pm] /Aula04PraticasProgramacao/css/bootstrap.min.css
+
+[Domingo, Junho 03, 2018 BRT 04:01:13:558 pm] /Aula04PraticasProgramacao/css/style.css
+
+[Domingo, Junho 03, 2018 BRT 04:01:13:646 pm] /Aula04PraticasProgramacao/js/jquery.min.js
+
+[Domingo, Junho 03, 2018 BRT 04:01:13:648 pm] /Aula04PraticasProgramacao/js/bootstrap.min.js
+
+[Domingo, Junho 03, 2018 BRT 04:01:13:957 pm] /Aula04PraticasProgramacao/fonts/glyphicons-halflings-regular.eot
+
+[Domingo, Junho 03, 2018 BRT 04:01:33:688 pm] FazerLogin
+
+[Domingo, Junho 03, 2018 BRT 04:04:59:857 pm] /Aula04PraticasProgramacao/index.jsp
+
+[Domingo, Junho 03, 2018 BRT 04:05:25:246 pm] CriarPais
+
+[Domingo, Junho 03, 2018 BRT 04:05:25:299 pm] /Aula04PraticasProgramacao/Login.jsp
+
